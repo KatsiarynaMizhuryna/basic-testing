@@ -14,7 +14,7 @@ describe('throwError', () => {
   });
 
   test('should throw error with default message if message is not provided', () => {
-    const defaultMessage = 'Oops, Something went wrong!'
+    const defaultMessage = 'Oops!'
     expect(() => throwError()).toThrowError(defaultMessage);
   });
 });

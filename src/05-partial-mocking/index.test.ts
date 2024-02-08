@@ -16,6 +16,7 @@ describe('partial mocking', () => {
   });
 
   test('mockOne, mockTwo, mockThree should not log into console', () => {
+    console.log = jest.fn();
     mockOne();
     mockTwo();
     mockThree();
@@ -23,6 +24,7 @@ describe('partial mocking', () => {
   });
 
   test('unmockedFunction should log into console', () => {
+    console.log = jest.fn();
     unmockedFunction();
     expect(console.log).toHaveBeenCalledWith('I am not mocked');
   });

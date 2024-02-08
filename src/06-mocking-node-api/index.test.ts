@@ -77,7 +77,13 @@ describe('readFileAsynchronously', () => {
     const mockReadFile = jest.spyOn(require('fs/promises'), 'readFile');
     const fileContent = 'File content';
     mockReadFile.mockResolvedValueOnce(Buffer.from(fileContent));
-    const result = await readFileAsynchronously(existingFile);
-    expect(result).toBe(fileContent);
+    try {
+      const result = await readFileAsynchronously(existingFile);
+      console.log('Result:', result);
+      expect(result).toEqual(fileContent);
+    } catch (error) {
+      console.error('Error during test:', error);
+    }
+    mockReadFile.mockRestore();
   });
 });

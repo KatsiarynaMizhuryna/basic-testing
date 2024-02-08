@@ -31,13 +31,12 @@ describe('simpleCalculator tests', () => {
   });
 
   test('should return null for invalid action', () => {
-    expect(() =>
-      simpleCalculator({ a: 2, b: 3, action: 'InvalidAction' as Action })
-    ).toBe(null);
+    const result: number|null = simpleCalculator({ a: 2, b: 3, action: 'InvalidAction' as Action })
+    expect(result).toBe(null);
   });
 
   test('should return null for invalid arguments', () => {
-    const result = simpleCalculator({ a: 'abc', b: 3, action: '+' });
+    const result: number|null = simpleCalculator({ a: 'abc', b: 3, action: '+' });
     expect(result).toBe(null);
   });
 });

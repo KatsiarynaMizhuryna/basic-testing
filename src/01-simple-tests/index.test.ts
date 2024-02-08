@@ -2,22 +2,22 @@ import { simpleCalculator, Action } from './index';
 
 describe('simpleCalculator tests', () => {
   test('should add two numbers', () => {
-    const result = simpleCalculator({ a: 1, b: 2, action: Action.Add});
+    const result = simpleCalculator({ a: 1, b: 2, action: Action.Add });
     expect(result).toBe(3);
   });
 
   test('should subtract two numbers', () => {
-    const result = simpleCalculator({ a: 5, b: 1, action: Action.Subtract});
+    const result = simpleCalculator({ a: 5, b: 1, action: Action.Subtract });
     expect(result).toBe(4);
   });
 
   test('should multiply two numbers', () => {
-    const result = simpleCalculator({ a: 3, b: 2, action: Action.Multiply});
+    const result = simpleCalculator({ a: 3, b: 2, action: Action.Multiply });
     expect(result).toBe(6);
   });
 
   test('should divide two numbers', () => {
-    const result = simpleCalculator({ a: 8, b: 2, action: Action.Divide});
+    const result = simpleCalculator({ a: 8, b: 2, action: Action.Divide });
     expect(result).toBe(4);
   });
 
@@ -31,12 +31,20 @@ describe('simpleCalculator tests', () => {
   });
 
   test('should return null for invalid action', () => {
-    const result: number|null = simpleCalculator({ a: 2, b: 3, action: 'InvalidAction' as Action })
+    const result: number | null = simpleCalculator({
+      a: 2,
+      b: 3,
+      action: 'InvalidAction' as Action,
+    });
     expect(result).toBe(null);
   });
 
   test('should return null for invalid arguments', () => {
-    const result: number|null = simpleCalculator({ a: 'abc', b: 3, action: '+' });
+    const result: number | null = simpleCalculator({
+      a: 'abc',
+      b: 3,
+      action: '+',
+    });
     expect(result).toBe(null);
   });
 });

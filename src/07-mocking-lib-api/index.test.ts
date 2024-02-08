@@ -38,9 +38,7 @@ describe('throttledGetDataFromApi', () => {
       get: jest.fn().mockResolvedValue({ data: responseData }),
     };
     jest.spyOn(axios, 'create').mockReturnValue(axiosClient as any);
-
     const resultPromise = throttledGetDataFromApi('posts');
-
     jest.runAllTimers();
     const result = await resultPromise;
     expect(result).toEqual(responseData);

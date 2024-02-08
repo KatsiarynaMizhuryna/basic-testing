@@ -6,8 +6,7 @@ describe('generateLinkedList', () => {
     const result = generateLinkedList(elements);
     expect(result).toStrictEqual({
       value: 1,
-      next: {value: 2, next: { value: 3, next: { value: null, next: null }, },
-      },
+      next: { value: 2, next: { value: 3, next: { value: null, next: null } } },
     });
   });
 
